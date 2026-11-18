@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="12" y1="8" x2="116" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e1912" />
+      <stop offset="55%" stop-color="#0f0d0a" />
+      <stop offset="100%" stop-color="#1a1308" />
+    </linearGradient>
+    <linearGradient id="gold" x1="20" y1="16" x2="108" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fde68a" />
+      <stop offset="45%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#d97706" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.65" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#bg)" stroke="url(#rim)" stroke-width="2.5" />
+  <circle cx="64" cy="64" r="36" stroke="url(#gold)" stroke-width="5" />
+  <circle cx="64" cy="64" r="24" stroke="url(#gold)" stroke-width="2" stroke-opacity="0.55" stroke-dasharray="6 5" />
+  <circle cx="64" cy="64" r="9.5" fill="url(#gold)" />
+  <path d="M64 28V42M64 86V100M28 64H42M86 64H100M38.5 38.5L48.5 48.5M79.5 79.5L89.5 89.5M89.5 38.5L79.5 48.5M48.5 79.5L38.5 89.5" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round" />
+</svg>
