@@ -1,0 +1,20 @@
+{
+  "name": "ChamaVault — Group Savings & Contribution Ledger OS",
+  "short_name": "ChamaVault",
+  "description": "Offline-first collaborative group savings ledger, merry-go-round rotation manager, and project fundraiser tracker.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0c0b0a",
+  "theme_color": "#0c0b0a",
+  "categories": ["finance", "productivity", "business"],
+  "icons": [
+    {
+      "src": "/vault-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+name: Build ChamaVault Android APK
+
+on:
+  push:
+    branches:
+      - main
+      - 'arena/**'
+    paths-ignore:
+      - 'public/downloads/**'
+      - 'README.md'
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Setup Java 17 (Capacitor 6 Android Gradle)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Web Bundle & Compile Capacitor APK
+        run: bash scripts/build-apk.sh
+
+      - name: Upload ChamaVault APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChamaVault-v1.0.0-android-apk
+          path: |
+            public/downloads/chama-vault.apk
+            public/downloads/apk-manifest.json
+          retention-days: 90
+
+      - name: Publish APK to GitHub Release (on tag)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            public/downloads/chama-vault.apk
+            public/downloads/apk-manifest.json
+          generate_release_notes: true
